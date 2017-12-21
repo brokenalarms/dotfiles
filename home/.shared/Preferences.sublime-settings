@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Monokai Pro (SL).tmTheme",
 	"folder_exclude_patterns":
 	[
 		"tmp",
@@ -13,5 +13,6 @@
 	"ignored_packages":
 	[
 		"Vintage"
-	]
+	],
+	"theme": "Monokai Pro.sublime-theme"
 }
