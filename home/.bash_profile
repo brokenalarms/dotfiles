@@ -3,15 +3,20 @@ if [ -f ~/.bashrc ]; then
 . ~/.bashrc
 fi
 PATH="$(printf "%s" "${PATH}" | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
+
 # MacOS
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-    source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+if [ -f /usr/local/etc/bash_completion ]; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
 
 # RHEL
 if [ -f ~/.git-completion.sh ]; then
     source ~/.git-completion.bash
+fi
+
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
 fi
 
 # set up git autocompletion prompt
