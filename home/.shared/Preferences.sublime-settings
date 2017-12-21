@@ -1,0 +1,17 @@
+{
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"folder_exclude_patterns":
+	[
+		"tmp",
+		"public",
+		".public",
+		"target",
+		"node_modules",
+		"dist"
+	],
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage"
+	]
+}
