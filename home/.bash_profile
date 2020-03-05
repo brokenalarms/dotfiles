@@ -12,6 +12,11 @@ if [ -f /usr/local/etc/bash_completion ]; then
     source /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
 
+if [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]
+	source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+	export HOMESHICK_DIR=/usr/local/opt/homeshick
+fi
+
 # RHEL
 if [ -f ~/.git-completion.sh ]; then
     source ~/.git-completion.bash
@@ -19,6 +24,24 @@ fi
 
 if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
+fi
+
+if [ -f /home/linuxbrew/.linuxbrew/opt/homeshick ]
+	export HOMESHICK_DIR=/home/linuxbrew/.linuxbrew/opt/
+	source "/home/linuxbrew/.linuxbrew/opt/homeshick/homeshick.sh"
+fi
+
+if [ -x /usr/bin/keychain ] ; then
+        MYNAME=`/usr/bin/whoami`
+        if [ -f ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key ] ; then
+              /usr/bin/keychain ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key
+              . ~/.keychain/`hostname`-sh
+        fi
+fi
+
+# Set up Caps Lock -> Escape mapping
+if [ -s ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
 fi
 
 # set up git autocompletion prompt
@@ -33,14 +56,6 @@ PATH=$PATH:$HOME/bin
 # change Node default dir
 export PATH=~/.npm-global/bin:$PATH
 
-if [ -x /usr/bin/keychain ] ; then
-        MYNAME=`/usr/bin/whoami`
-        if [ -f ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key ] ; then
-              /usr/bin/keychain ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key
-              . ~/.keychain/`hostname`-sh
-        fi
-fi
-
 export NETREPO=svn+ssh://svn.corp.linkedin.com/netrepo/network
 export LIREPO=svn+ssh://svn.corp.linkedin.com/lirepo
 export VENREPO=svn+ssh://svn.corp.linkedin.com/vendor
@@ -54,12 +69,6 @@ export M2=$M2_HOME/bin
 
 export PATH=/export/apps/xtools/bin:$PATH:$JAVA_HOME/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/linkedin/bin
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-# Set up Caps Lock -> Escape mapping
-if [ -s ~/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
-fi
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-export HOMESHICK_DIR=/usr/local/opt/homeshick
 export VOLTA_HOME="/Users/dalawren/.volta"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
