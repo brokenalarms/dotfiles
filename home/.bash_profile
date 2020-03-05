@@ -1,3 +1,14 @@
+#Determine env
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+echo ${machine}
+
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 . ~/.bashrc
@@ -7,28 +18,38 @@ fi
 PATH="$(printf "%s" "${PATH}" | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
 # MacOS
-if [ -f /usr/local/etc/bash_completion ]; then
-    source /usr/local/etc/bash_completion.d/git-completion.bash
-    source /usr/local/etc/bash_completion.d/git-prompt.sh
-fi
+if [ machine="Mac" ]; then
+	if [ -f /usr/local/etc/bash_completion ]; then
+	    source /usr/local/etc/bash_completion.d/git-completion.bash
+	    source /usr/local/etc/bash_completion.d/git-prompt.sh
+	fi
 
-if [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]
-	source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-	export HOMESHICK_DIR=/usr/local/opt/homeshick
+	if [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]; then
+		source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+		export HOMESHICK_DIR=/usr/local/opt/homeshick
+	fi
 fi
 
 # RHEL
-if [ -f ~/.git-completion.sh ]; then
-    source ~/.git-completion.bash
-fi
+if [ machine="Linux" ]; then
+	if [ -f ~/.git-completion.sh ]; then
+	    source ~/.git-completion.bash
+	fi
 
-if [ -f ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
-fi
+	if [ -f ~/.git-prompt.sh ]; then
+	    source ~/.git-prompt.sh
+	fi
 
-if [ -f /home/linuxbrew/.linuxbrew/opt/homeshick ]
-	export HOMESHICK_DIR=/home/linuxbrew/.linuxbrew/opt/
-	source "/home/linuxbrew/.linuxbrew/opt/homeshick/homeshick.sh"
+	if [ -f /home/linuxbrew/.linuxbrew/opt/homeshick ]; then
+		export HOMESHICK_DIR=/home/linuxbrew/.linuxbrew/opt/
+		source "/home/linuxbrew/.linuxbrew/opt/homeshick/homeshick.sh"
+	fi
+
+	# set up git autocompletion prompt
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWCOLORHINTS=true
+	PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+
 fi
 
 if [ -x /usr/bin/keychain ] ; then
@@ -44,10 +65,6 @@ if [ -s ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
 
-# set up git autocompletion prompt
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWCOLORHINTS=true
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
 # User specific environment and startup programs
 
