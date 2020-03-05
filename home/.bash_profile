@@ -61,3 +61,5 @@ fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 export HOMESHICK_DIR=/usr/local/opt/homeshick
+export VOLTA_HOME="/Users/dalawren/.volta"
+grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
