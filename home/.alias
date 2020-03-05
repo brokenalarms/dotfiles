@@ -1,4 +1,5 @@
 # Just Ember
+alias g="git"
 alias et="yarn && ember test --server"
 alias etm="yarn && ember test --path dist --server"
 alias es="yarn && ember s"
