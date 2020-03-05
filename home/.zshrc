@@ -1,24 +1,10 @@
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-if [ -x /usr/bin/keychain ] ; then
-        MYNAME=`/usr/bin/whoami`
-        if [ -f ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key ] ; then
-              /usr/bin/keychain ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key
-              . ~/.keychain/`hostname`-sh
-        fi
-fi
-zstyle :omz:plugins:ssh-agent identities ${MYNAME}_at_linkedin.com_ssh_key
- 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#zstyle :omz:plugins:ssh-agent identities ${MYNAME}_at_linkedin.com_ssh_key
 
+#aliases
 source ~/.alias	
+
+# git prompt
+source ./zsh-git-prompt/zshrc.sh
 
 export NETREPO=svn+ssh://svn.corp.linkedin.com/netrepo/network
 export LIREPO=svn+ssh://svn.corp.linkedin.com/lirepo

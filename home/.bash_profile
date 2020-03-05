@@ -7,22 +7,16 @@ case "${unameOut}" in
     MINGW*)     machine=MinGw;;
     *)          machine="UNKNOWN:${unameOut}"
 esac
-echo ${machine}
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
+echo "adding bashrc"
 . ~/.bashrc
 fi
 
-# print full pathname
-PATH="$(printf "%s" "${PATH}" | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
-
 # MacOS
-if [ machine="Mac" ]; then
-	if [ -f /usr/local/etc/bash_completion ]; then
-	    source /usr/local/etc/bash_completion.d/git-completion.bash
-	    source /usr/local/etc/bash_completion.d/git-prompt.sh
-	fi
+if [ "$machine" = "Mac" ]; then
+	echo "Applying Mac-specific settings"
 
 	if [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]; then
 		source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -31,7 +25,12 @@ if [ machine="Mac" ]; then
 fi
 
 # RHEL
-if [ machine="Linux" ]; then
+if [ "$machine" = "Linux" ]; then
+	echo "Applying Linux-specific settings"
+
+	# print full pathname
+	PATH="$(printf "%s" "${PATH}" | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
+
 	if [ -f ~/.git-completion.sh ]; then
 	    source ~/.git-completion.bash
 	fi
