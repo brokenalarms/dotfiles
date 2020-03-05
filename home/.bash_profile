@@ -10,8 +10,13 @@ esac
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-echo "adding bashrc"
-. ~/.bashrc
+	echo "adding bashrc"
+	. ~/.bashrc
+fi
+
+if [ -f ~/.alias ]; then
+	echo "adding aliases"
+	. ~/.alias
 fi
 
 # MacOS
@@ -42,10 +47,13 @@ if [ "$machine" = "Linux" ]; then
 	    source ~/.git-prompt.sh
 	fi
 
-	if [ -f /home/linuxbrew/.linuxbrew/opt/homeshick ]; then
-		export HOMESHICK_DIR=/home/linuxbrew/.linuxbrew/opt/
-		source "/home/linuxbrew/.linuxbrew/opt/homeshick/homeshick.sh"
+	if [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]; then
+		source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+		source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+	else
+		echo "homeshick not found"
 	fi
+
 
 	# set up git autocompletion prompt
 	GIT_PS1_SHOWDIRTYSTATE=true
