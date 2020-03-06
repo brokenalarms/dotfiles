@@ -49,6 +49,7 @@
     untracked = cyan
 [core]
 	excludesfile = /Users/dalawren/.gitignore_global
+	pager = 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
