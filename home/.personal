@@ -1,0 +1,5 @@
+echo "applying personal settings"
+if [ -f ~/dev/flutter/bin/flutter ]; then
+	echo "found flutter"
+	export PATH="$PATH:$HOME/dev/flutter/bin"
+fi
