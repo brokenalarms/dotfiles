@@ -3,3 +3,7 @@ if [ -f ~/dev/flutter/bin/flutter ]; then
 	echo "found flutter"
 	export PATH="$PATH:$HOME/dev/flutter/bin"
 fi
+
+# make Android SDK manager available from Android Studio installation path
+export ANDROID_HOME=/Users/dalawren/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools

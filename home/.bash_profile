@@ -87,10 +87,9 @@ export NETREPO=svn+ssh://svn.corp.linkedin.com/netrepo/network
 export LIREPO=svn+ssh://svn.corp.linkedin.com/lirepo
 export VENREPO=svn+ssh://svn.corp.linkedin.com/vendor
 
-export JAVA_HOME=/export/apps/jdk/JDK-1_8_0_121
-export JDK_HOME=/export/apps/jdk/JDK-1_8_0_121
-export NLS_LANG=American_America.UTF8
+export JAVA_HOME=$(/usr/libexec/java_home)
 
+export NLS_LANG=American_America.UTF8
 export M2_HOME=/local/maven
 export M2=$M2_HOME/bin
 
