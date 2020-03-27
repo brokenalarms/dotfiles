@@ -1,11 +1,10 @@
 # Just Ember
 alias g="git"
-alias et="yarn && ember test --server"
-alias etm="yarn && ember test --path dist --server"
-alias es="yarn && ember s"
+alias et="ember test --server"
+alias etm="ember test --path dist --server"
 
 # Mint
-alias mu="mint update"
+alias mu="mint update && yarn"
 alias mrd="mint runDebug"
 alias nukejs="yarn deleteDirs && yarn"
 
@@ -13,6 +12,9 @@ alias nukejs="yarn deleteDirs && yarn"
 alias ssh-ld1="ssh dalawren@dalawren-ld1.linkedin.biz"
 alias ssh-md2="ssh dalawren@dalawren-md2.linkedin.biz"
 alias ssh-mn1="ssh dalawren@dalawren-mn1.linkedin.biz"
+
+# Flutter
+alias mobx-watch="flutter packages pub run build_runner watch --delete-conflicting-outputs"
 
 # Misc
 killport() { lsof -ti:$1 | xargs kill -9 }
