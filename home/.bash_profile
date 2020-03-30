@@ -78,7 +78,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin
 
 # change Node default dir
 export PATH=~/.npm-global/bin:$PATH
