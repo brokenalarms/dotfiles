@@ -7,6 +7,14 @@ alias es="yarn && ember s"
 alias mu="mint update"
 alias mrd="mint runDebug"
 alias nukejs="yarn deleteDirs && yarn"
+function mintupdate() {
+mint update;
+if [ -d "./node_modules" ]; then
+  yarn;
+fi
+ }
+alias mu=mintupdate
+
 
 # SSH
 alias ssh-ld1="ssh dalawren@dalawren-ld1.linkedin.biz"
@@ -18,6 +26,7 @@ alias mobx-watch="flutter packages pub run build_runner watch --delete-conflicti
 
 # Misc
 killport() { lsof -ti:$1 | xargs kill -9 }
+alias restart-safe="sudo fdesetup authrestart"
 
 alias myip='dig +short `hostname` | tee >(pbcopy)'
 
