@@ -98,3 +98,8 @@ PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 export VOLTA_HOME="/Users/dalawren/.volta"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
+
+# remove duplicates in PATH:
+PATH=$(echo ${PATH} | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')
+PATH="${PATH%:}"    # remove trailing colon
+export PATH

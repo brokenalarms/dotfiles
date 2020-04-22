@@ -4,7 +4,6 @@ alias et="yarn && ember test --server"
 alias es="yarn && ember s"
 
 # Mint
-alias mu="mint update"
 alias mrd="mint runDebug"
 alias nukejs="yarn deleteDirs && yarn"
 function mintupdate() {
