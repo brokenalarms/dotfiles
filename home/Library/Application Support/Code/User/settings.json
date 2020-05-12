@@ -7,5 +7,9 @@
     "editor.formatOnSave": true,
     "html.format.enable": false,
     "window.zoomLevel": 0,
-    "editor.find.seedSearchStringFromSelection": false
+    "editor.find.seedSearchStringFromSelection": false,
+    "files.autoSave": "afterDelay",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

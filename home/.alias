@@ -1,13 +1,13 @@
-# Just Ember
+ Just Ember
 alias g="git"
-alias et="yarn && ember test --server"
+alias et="yarn && ember exam --server"
 alias es="yarn && ember s"
 
 # Mint
 alias mrd="mint runDebug"
 alias nukejs="yarn deleteDirs && yarn"
 function mintupdate() {
-mint update;
+mint update || return;
 if [ -d "./node_modules" ]; then
   yarn;
 fi
