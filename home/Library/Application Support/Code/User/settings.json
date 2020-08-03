@@ -6,10 +6,16 @@
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
     "html.format.enable": false,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "editor.find.seedSearchStringFromSelection": false,
     "files.autoSave": "afterDelay",
     "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
