@@ -50,6 +50,9 @@
 [core]
 	excludesfile = /Users/dalawren/.gitignore_global
 	pager = 
+	whitespace = trailing-space,space-before-tab
+[apply]
+	whitespace = fix
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
