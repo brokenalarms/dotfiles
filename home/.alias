@@ -14,6 +14,9 @@ fi
  }
 alias mu=mintupdate
 
+# Xcode
+alias nukeios="rm -rf ~/.cocoapods && rm -rf ~/Library/Caches/Cocoapods && rm -rf ~/Library/Developer/Xcode/DerivedData"
+
 
 # SSH
 alias ssh-ld1="ssh dalawren@dalawren-ld1.linkedin.biz"

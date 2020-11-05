@@ -49,7 +49,7 @@
     untracked = cyan
 [core]
 	excludesfile = /Users/dalawren/.gitignore_global
-	pager = 
+	pager = less -FX
 	whitespace = trailing-space,space-before-tab
 [apply]
 	whitespace = fix
