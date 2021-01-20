@@ -5,8 +5,8 @@
 	a = add
 	b = branch
 	ca = commit --amend --no-edit
-	caa = commit -a --amend --no-edit
-	caan = commit -a --amend
+	caa = commit -a --amend
+	caan = commit -a --amend --no-edit
 	cc = !git status | grep 'both modified' | tail -n1 | cut -d : -f2 | pbcopy && pbpaste
 	co = checkout
 	d = diff
