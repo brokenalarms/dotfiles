@@ -32,4 +32,6 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.formatOnSave": true
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.formatOnSaveMode": "modifications"
 }
