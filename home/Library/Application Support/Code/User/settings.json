@@ -5,7 +5,6 @@
     "prettier.requireConfig": true,
     "editor.minimap.enabled": false,
     "html.format.enable": false,
-    "window.zoomLevel": 1,
     "editor.find.seedSearchStringFromSelection": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -30,8 +29,7 @@
     },
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "remote.SSH.allowLocalServerDownload": true,
+    "remote.SSH.localServerDownload":"auto",
     "java.semanticHighlighting.enabled": true,
     "yaml.schemas": {
         "file:///home/coder/.vscode-server/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
@@ -40,5 +38,9 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "terminal.integrated.enablePersistentSessions": false,
     "gitlens.currentLine.dateFormat": "",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {},
+    "dart.flutterDaemonLogFile": null,
+    "window.zoomLevel": 1
 }

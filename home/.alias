@@ -8,10 +8,6 @@ alias mrd="mint runDebug"
 alias nukejs="yarn deleteDirs && yarn"
 function mintupdate() {
 mint update || return;
-if [ -d "./node_modules" ]; then
-  yarn;
-fi
- }
 alias mu=mintupdate
 
 # Xcode
