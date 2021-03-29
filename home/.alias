@@ -1,4 +1,4 @@
- Just Ember
+# Just Ember
 alias g="git"
 alias et="yarn && ember exam --server"
 alias es="yarn && ember s"
@@ -6,9 +6,10 @@ alias es="yarn && ember s"
 # Mint
 alias mrd="mint runDebug"
 alias nukejs="yarn deleteDirs && yarn"
-function mintupdate() {
-mint update || return;
-alias mu=mintupdate
+
+function mu() {
+  mint update || return;
+}
 
 # Xcode
 alias nukeios="rm -rf ~/.cocoapods && rm -rf ~/Library/Caches/Cocoapods && rm -rf ~/Library/Developer/Xcode/DerivedData"
@@ -35,3 +36,4 @@ alias alignhorizontal2='displayplacer "id:4057B21D-EED5-8866-4666-4C7A0B5813CE r
 fi
 
 li_at=AQEDAQtIzmoDPH82AAABcik5QrYAAAFyTUXTZlYCABXjJAAAAJlBQ1RJVkUsQ09SUF9BRE1JTixMSVNBX0FEX1NVUEVSX0FETUlOLExJU0FfTUFOQUdFX0FELExJU0FfTUFOQUdFX0FEX0FDQ09VTlQsTElTQV9WSUVXX0FMTF9BRF9BQ0NPVU5UUyxNQU5BR0VfQURTLE1BTkFHRV9DSElOQV9NRU1CRVJTLE1BTkFHRV9DT1JQX01FTUJFUlOTpPSPYk0z5YadoldIw7uJ5tuPvspy_rnjsIYJYtfbD6-S2axCpXfc8gSjRGt_qq9HlGd_cV65mxuyt0rBKM9cOiMwfZx0s6oM1Bncw9IZ7LgBzNI
+

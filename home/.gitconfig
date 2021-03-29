@@ -3,6 +3,7 @@
 	email = dalawrence@linkedin.com
 [alias]
 	a = add
+        au="!f() { git add $(git ls-files -o --exclude-standard); }; f"
 	b = branch
 	ca = commit --amend
 	can = commit --amend --no-edit
@@ -24,6 +25,7 @@
 	ls1 = log --oneline -1
 	nb = "!f() { git co master && mint update && git co -b $1 && git setm; }; f"
 	resetcommit = "!f() { HEAD_COMMIT=`git rev-parse head` && git reset --hard origin/master && git cherry-pick $HEAD_COMMIT; }; f"
+	pr = pull --rebase
 	rc = !"f() { PARENT_COMMIT=`git rev-parse head^` && git review create --open --no-prompt \"$@\" --parent $PARENT_COMMIT | pbcopy && pbpaste; }; f"
 	ru = !"f() { PARENT_COMMIT=`git rev-parse head^` && git review update --update-desc --parent $PARENT_COMMIT \"$@\"; }; f"
 	rs = restore --staged
@@ -31,7 +33,7 @@
 	sa = submit --async
 	set = !git branch --set-upstream-to=$1
 	setm = !git branch --set-upstream-to=origin/master
-	outahere = "!f() { git setm && mint update && git review dcommit -r $1 && git submit --async; }; f"
+	outahere = "!f() { git setm && git pull --rebase && git review dcommit && git submit --async; }; f"
 	sortdiff = !git diff $@ | grep ^[+-] | sort --key=1.2 | uniq -u -s1
 	track = branch --set-upstream-to=$1
 	unstage = reset --
@@ -77,3 +79,8 @@
 	minRacyThreshold = 0 nanoseconds
 [pager]
 	branch = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
