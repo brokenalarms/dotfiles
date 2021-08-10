@@ -29,6 +29,10 @@ alias restart-safe="sudo fdesetup authrestart"
 
 alias myip='dig +short `hostname` | tee >(pbcopy)'
 
+# QPROD
+
+alias qdtl="qdt -t prod deployment list -u dalawren"
+
 if [ "$machine" = "Mac" ]; then
 alias align='displayplacer "id:4057B21D-EED5-8866-4666-4C7A0B5813CE res:2560x1440 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:7B85967C-1E7C-C473-9384-59DFB4D505CC res:1440x900 color_depth:4 scaling:on origin:(-2043,1440) degree:0" "id:CB8F00E7-868F-C971-2B4D-5F58386F1267 res:2560x1440 hz:60 color_depth:8 scaling:off origin:(-2560,0) degree:0"'
 alias alignhorizontal='displayplacer "id:CB8F00E7-868F-C971-2B4D-5F58386F1267 res:2560x1440 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:7B85967C-1E7C-C473-9384-59DFB4D505CC res:1440x900 color_depth:4 scaling:on origin:(2560,540) degree:0" "id:4057B21D-EED5-8866-4666-4C7A0B5813CE res:2560x1440 hz:60 color_depth:8 scaling:off origin:(-2560,0) degree:0"'
