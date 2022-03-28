@@ -101,6 +101,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/.cross-platform
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export NODE_OPTIONS="--max-old-space-size=18432"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export NODE_OPTIONS="--max-old-space-size=18432"

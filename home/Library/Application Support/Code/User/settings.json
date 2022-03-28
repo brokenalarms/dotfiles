@@ -45,5 +45,6 @@
   "window.zoomLevel": 1,
   "remote.SSH.allowLocalServerDownload": true,
   "javascript.suggest.autoImports": false,
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "linkedin-extensions.directory": "/Users/dalawren/.vscode-linkedin-extensions"
 }
