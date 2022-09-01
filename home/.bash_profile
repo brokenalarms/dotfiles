@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && . "$HOME/.fig/shell/bash_profile.pre.bash"
 #Determine env
 unameOut="$(uname -s)"
 case "${unameOut}" in
@@ -76,6 +78,8 @@ fi
 
 # User specific environment and startup programs
 
+export NODE_OPTIONS=--max-old-space-size=8192
+
 export PATH=$PATH:$HOME/bin
 
 # change Node default dir
@@ -101,3 +105,40 @@ PATH="${PATH%:}"    # remove trailing colon
 export PATH
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+
+# stop Git auto completing remotes
+_git_checkout ()
+{
+  __git_has_doubledash && return
+
+  case "$cur" in
+    --conflict=*)
+      __gitcomp "diff3 merge" "" "${cur##--conflict=}"
+      ;;
+    --*)
+      __gitcomp "
+      --quiet --ours --theirs --track --no-track --merge
+      --conflict= --orphan --patch
+      "
+      ;;
+    *)
+      # check if --track, --no-track, or --no-guess was specified
+      # if so, disable DWIM mode
+      local flags="--track --no-track --no-guess" track=1
+      if [ -n "$(__git_find_on_cmdline "$flags")" ]; then
+        track=''
+      fi
+      # only search local branches instead of remote branches if origin isn't
+      # specified
+      if [[ $cur == "origin/"* ]]; then
+        __gitcomp_nl "$(__git_refs '' $track)"
+      else
+        __gitcomp_nl "$(__git_heads '' $track)"
+      fi
+      ;;
+  esac
+}
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && . "$HOME/.fig/shell/bash_profile.post.bash"

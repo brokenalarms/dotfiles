@@ -12,7 +12,8 @@ function mu() {
 }
 
 # Xcode
-alias nukeios="rm -rf ~/.cocoapods && rm -rf ~/Library/Caches/Cocoapods && rm -rf ~/Library/Developer/Xcode/DerivedData"
+alias nuke-ios-cache="rm -rf ~/.cocoapods && rm -rf ~/Library/Caches/Cocoapods && rm -rf ~/Library/Developer/Xcode/DerivedData && rm -rf ~/local-repo && rm -rf /tmp/ModuleCache.noindex && sudo rm -rf /private/var/tmp/_bazel_* && rm -rf ~/.bw/cache/ && bazel clean --expunge"
+alias rm-old-pods='today=$(date +"%Y-%m-%d 00:00:00") && find ~/.cocoapods/sourceTars ! -newermt "${today}" -delete'
 
 
 # SSH

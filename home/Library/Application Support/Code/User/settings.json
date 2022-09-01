@@ -1,50 +1,21 @@
 {
-  "[handlebars]": {
-    "editor.formatOnSave": false
-  },
-  "prettier.requireConfig": true,
-  "editor.minimap.enabled": false,
-  "html.format.enable": false,
-  "editor.find.seedSearchStringFromSelection": false,
+  "editor.accessibilitySupport": "off",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
-  },
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
-  "remote.SSH.localServerDownload": "auto",
-  "java.semanticHighlighting.enabled": true,
-  "yaml.schemas": {
-    "file:///home/coder/.vscode-server/extensions/atlassian.atlascode-2.4.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "terminal.integrated.enablePersistentSessions": false,
-  "gitlens.currentLine.dateFormat": "",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-"editor.codeActionsOnSave": {},
-"dart.flutterDaemonLogFile": null,
-  "window.zoomLevel": 1,
-  "remote.SSH.allowLocalServerDownload": true,
-  "javascript.suggest.autoImports": false,
-  "workbench.editor.showTabs": false,
-  "linkedin-extensions.directory": "/Users/dalawren/.vscode-linkedin-extensions"
+  "linkedin-extensions.directory": "/Users/dalawren/.vscode-linkedin-extensions",
+  "terraform-ls.terraformExecPath": "/Users/dalawren/.vscode-linkedin-extensions/terraform-ls/terraform-ls_darwin_amd64",
+  "terraform.languageServer": {
+    "pathToBinary": "/Users/dalawren/.vscode-linkedin-extensions/terraform-ls/terraform-ls_darwin_amd64"
+  },
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "editor.minimap.enabled": false,
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.find.seedSearchStringFromSelection": "selection",
+  "window.zoomLevel": 1
 }
