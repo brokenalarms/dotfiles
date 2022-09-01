@@ -1,6 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && . "$HOME/.fig/shell/bash_profile.pre.bash"
 #Determine env
+
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)     machine=Linux;;
@@ -12,23 +11,30 @@ esac
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	echo "adding bashrc"
 	. ~/.bashrc
 fi
 
 if [ -f ~/.alias ]; then
-	echo "adding aliases"
 	. ~/.alias
 fi
 
 # MacOS
+
 if [ "$machine" = "Mac" ]
 then
-	echo "Applying Mac-specific settings"
 
-	if [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]; then
-		source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+	if [ -f /opt/homebrew/opt/homeshick/homeshick.sh ]; then
+		# homeshick - brew installation
+		export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
+		source "/opt/homebrew/opt/homeshick/homeshick.sh"
+	elif [ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]; then
+		# homeshick - Git clone installation
 		export HOMESHICK_DIR=/usr/local/opt/homeshick
+		source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+	fi
+
+	if [ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+		[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 	fi
 fi
 
@@ -60,6 +66,13 @@ if [ "$machine" = "Linux" ]; then
 	GIT_PS1_SHOWCOLORHINTS=true
 	PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
+	PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+	# Set up Caps Lock -> Escape mapping
+	if [ -s ~/.Xmodmap ]; then
+	    xmodmap ~/.Xmodmap
+	fi
+
 fi
 
 if [ -x /usr/bin/keychain ] ; then
@@ -68,11 +81,6 @@ if [ -x /usr/bin/keychain ] ; then
               /usr/bin/keychain ~/.ssh/${MYNAME}_at_linkedin.com_ssh_key
               . ~/.keychain/`hostname`-sh
         fi
-fi
-
-# Set up Caps Lock -> Escape mapping
-if [ -s ~/.Xmodmap ]; then
-    xmodmap ~/.Xmodmap
 fi
 
 
@@ -96,7 +104,6 @@ export M2_HOME=/local/maven
 export M2=$M2_HOME/bin
 
 export PATH=/export/apps/xtools/bin:$PATH:$JAVA_HOME/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/linkedin/bin
-PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 
 # remove duplicates in PATH:
