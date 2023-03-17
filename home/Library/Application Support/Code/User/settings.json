@@ -17,6 +17,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "editor.find.seedSearchStringFromSelection": "selection",
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "Default Dark+"
+  "window.zoomLevel": 1
 }

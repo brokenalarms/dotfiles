@@ -104,48 +104,15 @@ export M2_HOME=/local/maven
 export M2=$M2_HOME/bin
 
 export PATH=/export/apps/xtools/bin:$PATH:$JAVA_HOME/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/linkedin/bin
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 
 # remove duplicates in PATH:
 PATH=$(echo ${PATH} | /usr/bin/awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')
 PATH="${PATH%:}"    # remove trailing colon
 export PATH
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
+# git
+GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
-# stop Git auto completing remotes
-_git_checkout ()
-{
-  __git_has_doubledash && return
-
-  case "$cur" in
-    --conflict=*)
-      __gitcomp "diff3 merge" "" "${cur##--conflict=}"
-      ;;
-    --*)
-      __gitcomp "
-      --quiet --ours --theirs --track --no-track --merge
-      --conflict= --orphan --patch
-      "
-      ;;
-    *)
-      # check if --track, --no-track, or --no-guess was specified
-      # if so, disable DWIM mode
-      local flags="--track --no-track --no-guess" track=1
-      if [ -n "$(__git_find_on_cmdline "$flags")" ]; then
-        track=''
-      fi
-      # only search local branches instead of remote branches if origin isn't
-      # specified
-      if [[ $cur == "origin/"* ]]; then
-        __gitcomp_nl "$(__git_refs '' $track)"
-      else
-        __gitcomp_nl "$(__git_heads '' $track)"
-      fi
-      ;;
-  esac
-}
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && . "$HOME/.fig/shell/bash_profile.post.bash"

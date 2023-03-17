@@ -1,9 +1,9 @@
 [user]
-	name = Daniel Lawrence
+	name = Daniel Lawrence]
 	email = dalawrence@linkedin.com
 [alias]
 	a = add
-        au="!f() { git add $(git ls-files -o --exclude-standard); }; f"
+	au="!f() { git add $(git ls-files -o --exclude-standard); }; f"
 	b = branch
 	ca = commit --amend
 	can = commit --amend --no-edit
@@ -16,6 +16,8 @@
 	create = "!f() { if [[ -z $(git status -s) ]]; then git checkout -b $1 origin/master && git reset --hard origin/master && mint update; else echo  "Cannot create new branch: unsaved changes."; fi; }; f"
 
 	co = checkout
+	# maintain old behavior, co will not autocomplete remotes
+	cor = checkoutr
 	d = diff
 	dn = diff --name-only
 	ds = diff --staged
@@ -24,10 +26,11 @@
 	dhn = g diff head^ --name-only
 	g = !git
 	git = !git
-	l = log --graph --decorate --pretty=oneline --abbrev-commit --max-count=30
+	l = log --date=short --decorate --max-count=30
 	l1 = log -1
 	resetcommit = "!f() { HEAD_COMMIT=`git rev-parse head` && git reset --hard origin/master && git cherry-pick $HEAD_COMMIT; }; f"
 	pr = pull --rebase
+	mergemaster = "!f() { git fetch origin && git merge origin/master; }; f"
 	rc = !"f() { PARENT_COMMIT=`git rev-parse head^` && git review create --open --no-prompt \"$@\" --parent $PARENT_COMMIT | pbcopy && pbpaste; }; f"
 	rcf = !"f() { PARENT_COMMIT=`git rev-parse head^` && mint format && git caan && git review create --open --no-prompt \"$@\" --parent $PARENT_COMMIT | pbcopy && pbpaste; }; f"
         ri = rebase --interactive
@@ -67,6 +70,7 @@
 	pager = less -FX
 	whitespace = trailing-space,space-before-tab
 	commitGraph = true
+	editor = /usr/bin/vim
 [apply]
 	whitespace = fix
 [difftool "sourcetree"]
@@ -94,3 +98,7 @@
 	required = true
 [gc]
 	writeCommitGraph = true
+[pull]
+	rebase = true
+[format]
+	pretty = format::%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
