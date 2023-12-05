@@ -1,7 +1,7 @@
 {
   "editor.accessibilitySupport": "off",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "editor.formatOnSave": true,
   "linkedin-extensions.directory": "/Users/dalawren/.vscode-linkedin-extensions",
@@ -17,5 +17,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "editor.find.seedSearchStringFromSelection": "selection",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "editor.inlineSuggest.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open"
 }
