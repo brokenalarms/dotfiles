@@ -1,0 +1,20 @@
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle gitfast
+
+# autocompletions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle z-shell/F-Sy-H --branch=main
+
+# Load the theme.
+#antigen theme robbyrussell
+antigen theme romkatv/powerlevel10k
+
+# Tell Antigen that you're done.
+antigen apply

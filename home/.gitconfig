@@ -1,52 +1,30 @@
 [user]
-	name = dalawren
-	email = dalawren@linkedin.com
+	name = Daniel Lawrence
+	email = brokenalarms@gmail.com
 [alias]
-	a = add
-	au="!f() { git add $(git ls-files -o --exclude-standard); }; f"
-	b = branch
-	ca = commit --amend
-	can = commit --amend --no-edit
-	caa = commit -a --amend
-	caan = commit -a --amend --no-edit
+	#a = add
+	#b = branch
 	cc = !git status | grep 'both modified' | tail -n1 | cut -d : -f2 | pbcopy && pbpaste
-
-	# creates a new branch based off origin/master and set origin master to upstream
-	# usage: git create <branch_name>
-	create = "!f() { if [[ -z $(git status -s) ]]; then git checkout -b $1 origin/master && git reset --hard origin/master && mint update; else echo  "Cannot create new branch: unsaved changes."; fi; }; f"
-
-	co = checkout
-	# maintain old behavior, co will not autocomplete remotes
-	cor = checkoutr
-	d = diff
-	dn = diff --name-only
-	ds = diff --staged
-	dsn = diff --staged --name-only
+	##d = diff
+	#ds = diff --staged
 	dh = g diff head^
 	dhn = g diff head^ --name-only
 	g = !git
 	git = !git
-	l = log --date=short --decorate --max-count=30
-	l1 = log -1
+	log = "!f() { git log --pretty=tformat:%C(red)%h%Creset %C(auto)%ad (%cr)  %<(35,ltrunc)%C(auto)%d  %<(16,trunc)%C(blue)%an %Creset %<($(($(tput cols)-20)),trunc)%a --max-count=20; }; f"
+	l = log
+	l1 = l -1
+	ll = pull
+	lo = l --oneline
+	lo1 = lo -1
 	resetcommit = "!f() { HEAD_COMMIT=`git rev-parse head` && git reset --hard origin/master && git cherry-pick $HEAD_COMMIT; }; f"
-	pr = pull --rebase
-	mergemaster = "!f() { git fetch origin master:master && git merge origin/master; }; f"
-	rc = !"f() { PARENT_COMMIT=`git rev-parse head^` && git review create --open --no-prompt \"$@\" --parent $PARENT_COMMIT | pbcopy && pbpaste; }; f"
-	rcf = !"f() { PARENT_COMMIT=`git rev-parse head^` && mint format && git caan && git review create --open --no-prompt \"$@\" --parent $PARENT_COMMIT | pbcopy && pbpaste; }; f"
-        ri = rebase --interactive
-	root = rev-parse --show-toplevel
-	ru = !"f() { PARENT_COMMIT=`git rev-parse head^` && git review update --update-desc --parent $PARENT_COMMIT \"$@\"; }; f"
-	ruf = !"f() { PARENT_COMMIT=`git rev-parse head^` && mint format && git caan && git review update --update-desc --parent $PARENT_COMMIT \"$@\"; }; f"
-	rs = restore --staged
-	rv = remote -v
 	s = status
-	sa = submit --async
 	set = !git branch --set-upstream-to=$1
 	setm = !git branch --set-upstream-to=origin/master
-	outahere = "!f() { git setm && git pull --rebase && git review dcommit && git submit --async; }; f"
 	sortdiff = !git diff $@ | grep ^[+-] | sort --key=1.2 | uniq -u -s1
 	track = branch --set-upstream-to=$1
 	unstage = reset --
+	checkoutr = checkout
 [color]
     branch = auto
     diff = auto
@@ -65,14 +43,7 @@
     changed = green
     untracked = cyan
 [core]
-	whitespace = trailing-space,space-before-tab
 	excludesfile = /Users/dalawren/.gitignore_global
-	pager = less -FX
-	whitespace = trailing-space,space-before-tab
-	commitGraph = true
-	editor = /usr/bin/vim
-[apply]
-	whitespace = fix
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -89,19 +60,15 @@
 [filesystem "Oracle Corporation|1.8.0_172|/dev/disk1s6"]
 	timestampResolution = 1001 milliseconds
 	minRacyThreshold = 0 nanoseconds
-[pager]
-	branch = false
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[gc]
-	writeCommitGraph = true
-[pull]
-	rebase = true
-	ff = only
 [format]
-	pretty = format::%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
-[init]
-	defaultBranch = master
+	pretty = tformat:%C(red)%h%Creset %C(auto)%ad %<(11,trunc)(%cr)  %<(35,ltrunc)%C(auto)%d %<(16,trunc)%C(blue)%an %Creset %s
+[log]
+	date = format:%Y-%m-%d %H:%M
+	max-count = 20
+[pull]
+	ff = only

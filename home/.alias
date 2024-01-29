@@ -1,44 +1,38 @@
-# Just Ember
-alias g="git"
-alias et="yarn && ember exam --server"
-alias es="yarn && ember s"
+# eza (ls) commands
+alias ls="eza -a --icons --group-directories-first"
+alias ld="eza -lD"
+alias lf="eza -lF --color=always | grep -v /"
+alias lh="eza -dl .* --group-directo@ies-first"
+alias lo="eza -al1 --group-directories-first"
+alias lt="eza -al --sort=modified"
 
-# Mint
-alias mrd="mint runDebug"
-alias nukejs="yarn deleteDirs && yarn"
+# git additional commands to pass to gitconfig
+alias gdh="gd head"
+alias gl="git l"
+alias gl1="git l1"
+alias gll="git pull --ff-only"
+alias glme="git l --author=$(whoami) --max-count=20"
+alias glo="git lo"
+alias glo1="git lo1"
+alias gmv="git mv"
+alias gs="git s"
 
-function mu() {
-  mint update || return;
-}
+# homeshick
+if [ -d "/opt/homebrew/opt/homeshick" ]; then
+	export HOMESHICK_DIR=/opt/homebrew/opt/homeshick
+	source "/opt/homebrew/opt/homeshick/homeshick.sh"
+fi
+
+# vim
+alias v="vim"
 
 # Xcode
 alias nuke-ios-cache="rm -rf ~/.cocoapods && rm -rf ~/Library/Caches/Cocoapods && rm -rf ~/Library/Developer/Xcode/DerivedData && rm -rf ~/local-repo && rm -rf /tmp/ModuleCache.noindex && sudo rm -rf /private/var/tmp/_bazel_* && rm -rf ~/.bw/cache/ && bazel clean --expunge"
-alias ios-refresh-app="git pull --rebase && bazel shutdown && git clean -fxd && ./gradlew podinstall && ./build/bazel-build/remote_cache_trigger.sh off"
+alias ios-refresh-app="git pull --rebase && bazel shutdown && git clean -fxd &&  ./gradlew bazelize -Ppod-remote-cache -Ppod-include-tests && ./build/bazel-build/remote_cache_trigger.sh off"
 alias ios-run-app="bazel run LinkedIn --config Debug --ios_multi_cpus=x86_64"
 alias ios-refresh-app-and-run="ios-refresh-app && ios-run-app"
 alias rm-old-pods='today=$(date +"%Y-%m-%d 00:00:00") && find ~/.cocoapods/sourceTars ! -newermt "${today}" -delete'
 
-
-# SSH
-alias ssh-ld1="ssh dalawren@dalawren-ld1.linkedin.biz"
-alias ssh-md2="ssh dalawren@dalawren-md2.linkedin.biz"
-alias ssh-mn1="ssh dalawren@dalawren-mn1.linkedin.biz"
-alias ssh-mn2="ssh dalawren@dalawren-mn2.linkedin.biz"
-
-# Flutter
-alias mobx-watch="flutter packages pub run build_runner watch --delete-conflicting-outputs"
-
-# Misc
+# Utilities
 killport() { lsof -ti:$1 | xargs kill -9 }
-alias restart-safe="sudo fdesetup authrestart"
-
 alias myip='dig +short `hostname` | tee >(pbcopy)'
-
-# QPROD
-
-alias qdtl="qdt -t prod deployment list -u dalawren"
-
-q () {
-	q=$1
-	[ -z ${1+x} ] && echo "Usage $0 msft # example" || curl -A "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" -s https://query2.finance.yahoo.com/v11/finance/quoteSummary/${q}\?modules\=assetProfile%2CsummaryProfile%2CsummaryDetail%2CesgScores%2Cprice%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2CfinancialData%2CcalendarEvents%2CsecFilings%2CrecommendationTrend%2CupgradeDowngradeHistory%2CinstitutionOwnership%2CfundOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CinsiderTransactions%2CinsiderHolders%2CnetSharePurchaseActivity%2Cearnings%2CearningsHistory%2CearningsTrend%2CindustryTrend%2CindexTrend%2CsectorTrend | jq -r '.quoteSummary.result[0].price.regularMarketPrice.fmt'
-}
