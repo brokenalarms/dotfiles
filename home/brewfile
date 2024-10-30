@@ -14,6 +14,7 @@ cask "font-menlo-for-powerline"
 brew "antigen"
 brew "eza"
 brew "homeshick"
+brew "mas"
 brew "powerlevel10k"
 brew "tailscale"
 
@@ -27,7 +28,6 @@ cask "iina"
 cask "firefox"
 cask "iterm2"
 cask "macs-fan-control"
-cask "mas"
 cask "visual-studio-code"
 
 # App store
