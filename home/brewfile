@@ -1,12 +1,30 @@
 # specify a directory to install
-cask_args appdir: '/Applications'
+cask_args appdir: "/Applications"
 
 # install packages
+tap "homebrew/bundle"
+tap "romkatv/powerlevel10k"
+
+# Fonts
+cask "font-hack-nerd-font"
+cask "font-inconsolata-for-powerline"
+cask "font-menlo-for-powerline"
+
+# CLI
+brew "antigen"
+brew "eza"
+brew "homeshick"
+brew "powerlevel10k"
+brew "tailscale"
 
 # Casks
-cask 'bitwarden'
-cask 'iterm2'
-cask 'calibre'
-cask 'vscode'
+cask "bettertouchtool"
+cask "bitwarden"
+cask "calibre"
+cask "homerow"
+cask "iterm2"
+cask "macs-fan-control"
+cask "mas"
+cask "visual-studio-code"
 
-
+# App store
