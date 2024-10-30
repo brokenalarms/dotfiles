@@ -20,11 +20,17 @@ brew "tailscale"
 # Casks
 cask "bettertouchtool"
 cask "bitwarden"
+cask "chronosync"
 cask "calibre"
 cask "homerow"
+cask "iina"
+cask "firefox"
 cask "iterm2"
 cask "macs-fan-control"
 cask "mas"
 cask "visual-studio-code"
 
 # App store
+mas "Logic Pro", id: 634148309
+mas "XCode", id: 497799835
+mas "WhatsApp Messenger", id: 310633997
