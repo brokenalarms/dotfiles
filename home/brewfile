@@ -19,6 +19,7 @@ brew "powerlevel10k"
 brew "tailscale"
 
 # Casks
+cask "airflow"
 cask "bettertouchtool"
 cask "bitwarden"
 cask "chronosync"
