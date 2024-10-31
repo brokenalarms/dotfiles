@@ -16,7 +16,6 @@ brew "eza"
 brew "homeshick"
 brew "mas"
 brew "powerlevel10k"
-brew "tailscale"
 
 # Casks
 cask "airflow"
@@ -29,6 +28,10 @@ cask "iina"
 cask "firefox"
 cask "iterm2"
 cask "macs-fan-control"
+cask "monitorcontrol"
+cask "proton-mail"
+cask "protonvpn"
+cask "tailscale"
 cask "visual-studio-code"
 
 # App store
