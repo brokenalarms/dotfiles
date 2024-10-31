@@ -4,7 +4,6 @@ cask_args appdir: "/Applications"
 # install packages
 tap "homebrew/bundle"
 tap "romkatv/powerlevel10k"
-tap "th-ch/youtube-music"
 
 # Fonts
 cask "font-hack-nerd-font"
@@ -35,7 +34,6 @@ cask "proton-mail"
 cask "protonvpn"
 # cask "tailscale"
 cask "visual-studio-code"
-cask "youtube-music"
 
 # App store
 mas "Logic Pro", id: 634148309
