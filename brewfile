@@ -32,6 +32,7 @@ cask "macs-fan-control"
 cask "monitorcontrol"
 cask "proton-mail"
 cask "protonvpn"
+cask "sanesidebuttons"
 # cask "tailscale"
 cask "visual-studio-code"
 
