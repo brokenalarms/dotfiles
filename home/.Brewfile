@@ -19,6 +19,7 @@ brew "powerlevel10k"
 
 # Casks
 cask "airflow"
+cask "appcleaner"
 cask "bettertouchtool"
 cask "bitwarden"
 cask "chronosync"
