@@ -24,6 +24,8 @@ cask "bettertouchtool"
 cask "bitwarden"
 cask "chronosync"
 cask "calibre"
+cask "commandpost"
+cask "daisydisk"
 cask "discord"
 cask "homerow"
 cask "iina"
@@ -36,10 +38,13 @@ cask "pocket-casts"
 cask "proton-mail"
 cask "protonvpn"
 cask "sanesidebuttons"
+cask "sonos"
 # cask "tailscale"
 cask "visual-studio-code"
 
 # App store
+mas "Final Cut Pro", id: 424389933
+mas "Flow", id: 1423210932
 mas "Logic Pro", id: 634148309
 mas "XCode", id: 497799835
 mas "WhatsApp Messenger", id: 310633997
