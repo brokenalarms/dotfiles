@@ -27,6 +27,7 @@ cask "calibre"
 cask "commandpost"
 cask "daisydisk"
 cask "discord"
+cask "google-drive"
 cask "homerow"
 cask "iina"
 cask "itsycal"
@@ -43,6 +44,8 @@ cask "sonos"
 cask "visual-studio-code"
 
 # App store
+mas "App Locker", id: 1132845904
+mas "Day One", id: 1055511498
 mas "Final Cut Pro", id: 424389933
 mas "Flow", id: 1423210932
 mas "Logic Pro", id: 634148309
