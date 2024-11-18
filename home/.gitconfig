@@ -72,3 +72,5 @@
 	max-count = 20
 [pull]
 	ff = only
+[push]
+	followTags = true
