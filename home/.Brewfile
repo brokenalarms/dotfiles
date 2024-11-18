@@ -51,5 +51,6 @@ mas "Day One", id: 1055511498
 mas "Final Cut Pro", id: 424389933
 mas "Flow", id: 1423210932
 mas "Logic Pro", id: 634148309
+mas "rcmd", id: 1596283165
 mas "XCode", id: 497799835
 mas "WhatsApp Messenger", id: 310633997
