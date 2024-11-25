@@ -14,6 +14,7 @@ cask "font-menlo-for-powerline"
 brew "antigen"
 brew "eza"
 brew "homeshick"
+brew "karabiner-elements"
 brew "mas"
 brew "powerlevel10k"
 
