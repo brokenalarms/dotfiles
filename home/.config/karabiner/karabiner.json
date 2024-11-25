@@ -1,0 +1,45 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 200 },
+                "rules": [
+                    {
+                        "description": "Caps Lock held -> Hyper",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "caps_lock" },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        { "sticky_modifier": { "left_shift": "toggle" } },
+                                        { "sticky_modifier": { "left_control": "toggle" } },
+                                        { "sticky_modifier": { "left_option": "toggle" } },
+                                        { "sticky_modifier": { "left_command": "toggle" } }
+                                    ],
+                                    "to_if_invoked": [{ "key_code": "vk_none" }]
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_option", "left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}
