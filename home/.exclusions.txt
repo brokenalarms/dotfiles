@@ -1,0 +1,7 @@
+.*
+fcpcache
+fcpcache/*
+cache/*
+Cache/*
+Final Cut Pro Optimized Media/*
+Final Cut Pro Proxy Media/*

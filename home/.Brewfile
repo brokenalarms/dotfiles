@@ -50,6 +50,7 @@ cask "raycast"
 cask "sanesidebuttons"
 cask "sonos"
 # cask "tailscale"
+cask "tidal"
 cask "todoist"
 cask "visual-studio-code"
 
