@@ -13,6 +13,7 @@ cask "font-menlo-for-powerline"
 # CLI
 brew "antigen"
 brew "eza"
+brew "ffmpeg"
 brew "homeshick"
 brew "mas"
 brew "powerlevel10k"

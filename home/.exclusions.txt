@@ -3,5 +3,5 @@ fcpcache
 fcpcache/*
 cache/*
 Cache/*
-Final Cut Pro Optimized Media/*
-Final Cut Pro Proxy Media/*
+Final Cut Optimized Media/*
+Final Cut Proxy Media/*
