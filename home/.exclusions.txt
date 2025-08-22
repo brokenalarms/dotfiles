@@ -15,3 +15,7 @@ cache/*
 Cache/*
 Final Cut Optimized Media/*
 Final Cut Proxy Media/*
+Render Files/*
+/.Trashes
+/.TemporaryItems
+/.DocumentRevisions-V100
