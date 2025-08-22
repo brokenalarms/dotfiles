@@ -1,6 +1,16 @@
 .*
-*/.*
-fcpcache/*
+*.tmp
+*.temp
+*~
+*.swp
+*.log
+*.fcpcache
+*.cache
+node_modules/
+__pycache__/
+Library/Caches/
+thumbs.db
+desktop.ini
 cache/*
 Cache/*
 Final Cut Optimized Media/*
