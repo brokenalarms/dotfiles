@@ -1,6 +1,6 @@
 [user]
-	name = Daniel Lawrence
-	email = brokenalarms@gmail.com
+	name = brokenalarms
+	email = brokenalarms@users.noreply.github.com
 [alias]
 	#a = add
 	#b = branch
@@ -74,3 +74,4 @@
 	ff = only
 [push]
 	followTags = true
+	autoSetupRemote = true
