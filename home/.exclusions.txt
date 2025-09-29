@@ -1,4 +1,8 @@
-.*
+.DS_Store
+.Spotlight-V100*
+.DocumentRevisions-V100*
+.fseventsd
+.VolumeIcon.icns
 *.tmp
 *.temp
 *~
@@ -13,9 +17,9 @@ thumbs.db
 desktop.ini
 cache/*
 Cache/*
-Final Cut Optimized Media/*
-Final Cut Proxy Media/*
-Render Files/*
+*Optimized*Media/*
+*Proxy*Media/*
+*Render*Files/*
 /.Trashes
 /.TemporaryItems
 /.DocumentRevisions-V100

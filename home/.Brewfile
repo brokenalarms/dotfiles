@@ -4,6 +4,7 @@ cask_args appdir: "/Applications"
 # install packages
 tap "homebrew/bundle"
 tap "romkatv/powerlevel10k"
+tap "RhetTbull/osxphotos"
 
 # Fonts
 cask "font-hack-nerd-font"
@@ -17,6 +18,8 @@ brew "ffmpeg"
 brew "homeshick"
 brew "mas"
 brew "powerlevel10k"
+brew "sshpass"
+brew "osxphotos"
 
 # Casks
 cask "airflow"
