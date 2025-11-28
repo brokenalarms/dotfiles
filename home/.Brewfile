@@ -20,6 +20,10 @@ brew "mas"
 brew "powerlevel10k"
 brew "sshpass"
 brew "osxphotos"
+brew "tag"
+brew "pv"
+brew "gh"
+
 
 # Casks
 cask "airflow"

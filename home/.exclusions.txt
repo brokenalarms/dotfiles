@@ -17,6 +17,7 @@ thumbs.db
 desktop.ini
 cache/*
 Cache/*
+CacheClip/*
 *Optimized*Media/*
 *Proxy*Media/*
 *Render*Files/*
